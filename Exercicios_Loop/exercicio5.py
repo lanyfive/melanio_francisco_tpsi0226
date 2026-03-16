@@ -1,0 +1,5 @@
+
+# Exercício 5: Escreve os primeiros 10.000 números inteiros no ecrã.
+
+for i in range(10001):
+    print(i, end = " ")

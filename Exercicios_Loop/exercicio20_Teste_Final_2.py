@@ -46,17 +46,35 @@ while True:
             new_yes_no = input("\n\nDeseja inserir novo cliente? S/N: ")
             if new_yes_no.lower() == "n": break
     elif opcao == "2":
-        for cliente in list_clients:
-            print(f"\nNúmero de Cliente: {cliente['num_cli']}")
-            print(f"Nome: {cliente['nom_cli']}")
+        i = 0
+        while i <= len(list_clients) - 1:
+            client = dict(list_clients[i])
+            print(f"\nNúmero de Cliente: {client['num_cli']}")
+            print(f"Nome: {client['nom_cli']}")
+            print(f"Morada: {client['morada']}")
+            print(f"Telefone: {client['tel']}")
+            print(f"NIF: {client['nif']}")
+            print(f"Valor da Compra: {client['compra']}")
+            print(f"Divida Final: {client['div_fin']}")
+            opcao = input("Deseja visualizar o próximo cliente? (S/N): ")
+            if opcao.lower() != "s":
+                break
+            i += 1
+
     elif opcao == "3":
         num_cli_input = int(input("Intruduza o Número de Cliente: "))
         for cliente in list_clients:
             if cliente["num_cli"] == num_cli_input:
                 print(f"\nNúmero de Cliente: {cliente['num_cli']}")
                 print(f"Nome: {cliente['nom_cli']}")
-            else:
-                 print("\nCliente não encontrado!\n")
+                print(f"Morada: {cliente['morada']}")
+                print(f"Telefone: {cliente['tel']}")
+                print(f"NIF: {cliente['nif']}")
+                print(f"Valor da Compra: {cliente['compra']}")
+                print(f"Divida Final: {cliente['div_fin']}")
+                break
+        else:
+            print("\nCliente não encontrado!\n")
     elif opcao == "4":
         print("\n\nMuito Obrigado!\n\n")
         break
